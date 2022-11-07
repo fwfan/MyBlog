@@ -1,9 +1,17 @@
-import './App.scss';
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-        用于显示UI 代码
+    <div className={"App"}>
+      <div className="header">
+        
+      </div>
+      <div className="content">
+        <div className="left"></div>
+        <div className="middle"></div>
+        <div className="right"></div>
+      </div>
+      <div className="bottom"></div>
     </div>
   );
 }
