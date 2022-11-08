@@ -1,15 +1,20 @@
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
+import HomePage from "./homepage";
+import About from "./about";
 
 function App() {
   return (
     <div className={"App"}>
       <div className="header">
-        
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </div>
       <div className="content">
-        <div className="left"></div>
-        <div className="middle"></div>
-        <div className="right"></div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
       <div className="bottom"></div>
     </div>

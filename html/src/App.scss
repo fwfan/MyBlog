@@ -9,6 +9,16 @@ $height: 70px;
     height: $height;
     background-color: $blue-2;
     box-shadow: 0px 0px 4px 0px $blue-4;
+    color: $gray-9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      color: $gray-9;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 20px 0 20px;
+    }
   }
   .content {
     height: calc(100% - $height);
