@@ -58,3 +58,18 @@ code {
   scrollbar-width: thin; /* 滚动条宽度有三种：thin、auto、none */
 }
 /*-----滚动条相关 end----*/
+
+.loading {
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
+  background-image: url("./images/charge-loading.svg");
+  // background-color: red;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  position: relative;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

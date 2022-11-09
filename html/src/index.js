@@ -1,14 +1,17 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+
+const App = React.lazy(() => import("./App"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Suspense fallback={<div className="loading">Loading...</div>}>
+        <App />
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>
 );
