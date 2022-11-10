@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3636;
 
-app.get('/rest/api', (req, res) => {
+app.get('/hello', (req, res) => {
   res.send('Hello World!!!!')
 })
 
