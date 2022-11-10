@@ -30,6 +30,7 @@ function App() {
               </Suspense>
             }
           />
+          <Route path="*" element={<HomePage />}></Route>
         </Routes>
       </div>
       <div className="bottom"></div>
