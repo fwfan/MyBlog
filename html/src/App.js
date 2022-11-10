@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
-import HomePage from "./homepage";
-import About from "./about";
+import HomePage from "./modules/homepage";
+import About from "./modules/about";
 
 function App() {
   return (
