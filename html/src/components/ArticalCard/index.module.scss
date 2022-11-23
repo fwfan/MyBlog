@@ -1,0 +1,34 @@
+@import "../../style/color.scss";
+
+$padding: 5px;
+
+.articalcard {
+  border: 1px solid $gray-6;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 12px;
+  box-shadow: 2px 2px 2px 0px $gray-7, -2px -2px 2px 0px $gray-7,
+    2px -2px 2px 0px $gray-7, -2px 2px 2px 0px $gray-7;
+
+  .articalcard-title {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    font-size: large;
+    font-weight: 500;
+    border-bottom: 1px solid $gray-6;
+  }
+  .articalcard-info {
+    width: 100%;
+    height: 10px;
+    height: 50px;
+    border-bottom: 1px solid $gray-6;
+  }
+  .articalcard-summary {
+    width: 100%;
+  }
+  .articalcard-operation {
+    width: 100%;
+  }
+}

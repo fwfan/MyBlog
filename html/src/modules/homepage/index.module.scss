@@ -9,17 +9,25 @@
   justify-content: center;
   .left {
     @include layout-div-style;
-    width: 20%;
+    width: 10%;
   }
 
   .right {
     @include layout-div-style;
-    width: 20%;
+    width: 10%;
   }
 
   .middle {
     @include layout-div-style;
-    width: 60%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 900px;
+    
+    .homepage-pigination{
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

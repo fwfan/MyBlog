@@ -25,3 +25,8 @@ sudo service mariadb-server restart    重起
 # 修改端口
  vi /etc/my.cnf.d/server.cnf                   [On CentOS/RHEL]
  vi /etc/mysql/mariadb.conf.d/50-server.cnf    [On Debian/Ubuntu]
+
+
+# mysql 相关设置
+grant all privileges on *.* to 'root'@'%' identified by '*Pa55Word*' with grant option;
+vim /etc/mysql/mariadb.conf.d/50-server.cnf
