@@ -8,10 +8,10 @@ const About = lazy(() => import("./modules/about"));
 function App() {
   return (
     <div className={"App"}>
-      <div className="header">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </div>
+      {/* <div className="header"> */}
+        {/* <Link to="/">Home</Link> */}
+        {/* <Link to="/about" hidden>About</Link> */}
+      {/* </div> */}
       <div className="content">
         <Routes>
           <Route

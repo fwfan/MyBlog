@@ -7,8 +7,13 @@ $padding: 5px;
   width: 100%;
   border-radius: 6px;
   margin-top: 12px;
-  box-shadow: 2px 2px 2px 0px $gray-7, -2px -2px 2px 0px $gray-7,
-    2px -2px 2px 0px $gray-7, -2px 2px 2px 0px $gray-7;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 2px 2px 2px 0px $gray-7, -2px -2px 2px 0px $gray-7,
+      2px -2px 2px 0px $gray-7, -2px 2px 2px 0px $gray-7;
+    cursor: pointer;
+  }
 
   .articalcard-title {
     width: 100%;
@@ -17,18 +22,55 @@ $padding: 5px;
     padding-left: 20px;
     font-size: large;
     font-weight: 500;
-    border-bottom: 1px solid $gray-6;
   }
-  .articalcard-info {
+
+  .articalcard-classify {
     width: 100%;
-    height: 10px;
-    height: 50px;
+    height: 30px;
+    padding: 0px 20px;
+    line-height: 30px;
+    color: $gray-3;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid $gray-6;
+
+    span {
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 3px;
+      }
+    }
   }
+
   .articalcard-summary {
     width: 100%;
+    padding: 10px 20px;
+    .articalcard-summary-code-inline {
+      background-color: $gray-7;
+      border-radius: 4px;
+      padding: 0px 4px;
+    }
   }
-  .articalcard-operation {
+
+  .articalcard-des {
     width: 100%;
+    height: 30px;
+    padding: 0px 20px;
+    line-height: 30px;
+    border-top: 1px solid $gray-6;
+    color: $gray-3;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 3px;
+      }
+    }
   }
 }
