@@ -11,30 +11,21 @@ import { ReactComponent as Read } from "../../images/read.svg";
 import { ReactComponent as NewArticalTime } from "../../images/calendar.svg";
 import { ReactComponent as Classification } from "../../images/checklist.svg";
 import { ReactComponent as Author } from "../../images/brush.svg";
+import axios from "axios";
 import styles from "./index.module.scss";
 import "katex/dist/katex.min.css";
-import { Tooltip } from "antd";
-
-const markdown = `A paragraph with *emphasis* and **strong importance**.
-<code class="sdsd">ttt</code>
-
-
-~~~javascript
-//字符串类型
-var str = new String('abc');
-var s = 'def';
-//布尔类型
-var bool = new Boolean(true);
-typeof str; //输出的是Object
-typeof s;//输出的是String
-typeof bool;//输出的是Object
-~~~
-
-
-
-`;
 
 class ArticalCard extends PureComponent {
+  componentDidMount() {
+    axios.get("/rest/api/article/article_list", {
+      params: {
+        query: JSON.stringify({ start: 0, limit: 5 }),
+      },
+    }).then((res)=>{
+      const result= JSON.parse(res)
+      console.log(result)
+    });
+  }
   render() {
     return (
       <div
@@ -54,7 +45,7 @@ class ArticalCard extends PureComponent {
         </div>
         <div className={styles["articalcard-summary"]}>
           <ReactMarkdown
-            children={markdown}
+            children={""}
             components={{
               code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
@@ -67,7 +58,10 @@ class ArticalCard extends PureComponent {
                     {...props}
                   />
                 ) : (
-                  <code className={styles["articalcard-summary-code-inline"]} {...props}>
+                  <code
+                    className={styles["articalcard-summary-code-inline"]}
+                    {...props}
+                  >
                     {children}
                   </code>
                 );
