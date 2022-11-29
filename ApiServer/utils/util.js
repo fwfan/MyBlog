@@ -10,6 +10,6 @@ exports.parseFailedResult =  (message = "") => ({
     message,
   });
 
-  exports.parseQuery = (query)=>{
+  exports.parseQuery = (query={})=>{
     return {...JSON.parse(query.query)}
   }

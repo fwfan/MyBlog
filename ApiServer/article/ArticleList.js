@@ -16,10 +16,10 @@ router.get("/article_list", (req, res) => {
         res.send(Utils.parseFailedResult(err.message));
         return;
       }
-      connection.end();
       res.send(Utils.parseSuccessResult(result, result.length));
     }
   );
+  connection.end();
 });
 
 module.exports = router;
