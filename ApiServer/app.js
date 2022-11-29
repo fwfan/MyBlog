@@ -1,11 +1,10 @@
-const express = require('express');
+const express = require("express");
+const ArticleList = require("./article/ArticleList");
 const app = express();
 const port = 3636;
 
-app.get('/hello', (req, res) => {
-  res.send('Hello World!!!!')
-})
+app.use('/article',require('./article/ArticleList'));
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
