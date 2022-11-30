@@ -19,7 +19,7 @@ router.get("/article_list", (req, res) => {
       res.send(Utils.parseSuccessResult(result, result.length));
     }
   );
-  connection.end();
+  // connection.end();
 });
 
 module.exports = router;
