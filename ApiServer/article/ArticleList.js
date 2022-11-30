@@ -6,7 +6,6 @@ const Utils = require("../utils/util");
 const connection = MysqlDao.connection;
 
 router.get("/article_list", (req, res) => {
-  connection.connect();
   const { start, limit } = Utils.parseQuery(req.query);
   connection.query(
     "SELECT * FROM blog.article LIMIT ?, ?",
@@ -19,7 +18,6 @@ router.get("/article_list", (req, res) => {
       res.send(Utils.parseSuccessResult(result, result.length));
     }
   );
-  // connection.end();
 });
 
 module.exports = router;
