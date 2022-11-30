@@ -1,36 +1,43 @@
 import { PureComponent } from "react";
 import ArticalCard from "../../components/ArticalCard";
-import { Pagination } from "antd";
+import { message, Pagination } from "antd";
+import axios from "axios";
 import styles from "./index.module.scss";
 
 class HomePage extends PureComponent {
+  state = {
+    articleList: [],
+    total: 0,
+  };
+
+  componentDidMount() {
+    axios
+      .get("/rest/api/article/article_list", {
+        params: {
+          query: JSON.stringify({ start: 0, limit: 5 }),
+        },
+      })
+      .then((res) => {
+        const { success, total, result, message } = res.data;
+        if (success) {
+          this.setState({ articleList: result, total });
+        } else {
+          message.error(message);
+        }
+        console.log(res);
+      });
+  }
+
   render() {
     return (
       <div className={styles["homepage"]}>
         <div className={styles["left"]}></div>
         <div className={styles["middle"]}>
-          <div>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-            <ArticalCard></ArticalCard>
-          </div>
+          {this.state.articleList.map((item) => (
+            <ArticalCard {...item}></ArticalCard>
+          ))}
           <div className={styles["homepage-pigination"]}>
-            <Pagination defaultCurrent={1} total={50} />
+            <Pagination defaultCurrent={1} total={this.props.total} />
           </div>
         </div>
         <div className={styles["right"]}></div>

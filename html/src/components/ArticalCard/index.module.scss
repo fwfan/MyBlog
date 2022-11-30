@@ -10,8 +10,8 @@ $padding: 5px;
   transition: box-shadow 0.5s;
 
   &:hover {
-    box-shadow: 2px 2px 2px 0px $gray-7, -2px -2px 2px 0px $gray-7,
-      2px -2px 2px 0px $gray-7, -2px 2px 2px 0px $gray-7;
+    box-shadow: 3px 3px 3px 0px $gray-7, -3px -3px 3px 0px $gray-7,
+      3px -3px 3px 0px $gray-7, -3px 3px 3px 0px $gray-7;
     cursor: pointer;
   }
 

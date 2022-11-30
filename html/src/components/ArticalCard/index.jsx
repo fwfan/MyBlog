@@ -11,41 +11,32 @@ import { ReactComponent as Read } from "../../images/read.svg";
 import { ReactComponent as NewArticalTime } from "../../images/calendar.svg";
 import { ReactComponent as Classification } from "../../images/checklist.svg";
 import { ReactComponent as Author } from "../../images/brush.svg";
-import axios from "axios";
+import moment from "moment";
 import styles from "./index.module.scss";
 import "katex/dist/katex.min.css";
 
 class ArticalCard extends PureComponent {
-  componentDidMount() {
-    axios.get("/rest/api/article/article_list", {
-      params: {
-        query: JSON.stringify({ start: 0, limit: 5 }),
-      },
-    }).then((res)=>{
-      const result= JSON.parse(res)
-      console.log(result)
-    });
-  }
+
   render() {
     return (
       <div
         className={styles["articalcard"]}
         onClick={() => console.log("sdsds")}
       >
-        <div className={styles["articalcard-title"]}>title</div>
+        <div className={styles["articalcard-title"]}>{this.props.title}</div>
         <div className={styles["articalcard-classify"]}>
           <span>
             <Icon component={Classification} />
-            {`Javascript,React`}
+            {`${this.props.sub_type}`}
           </span>
           <span className={styles["articalcard-read-num"]}>
             <Icon component={Author} />
-            {`fwfan`}
+            {`${this.props.author}`}
           </span>
         </div>
         <div className={styles["articalcard-summary"]}>
           <ReactMarkdown
-            children={""}
+            children={this.props.summary+"..."}
             components={{
               code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
@@ -74,11 +65,11 @@ class ArticalCard extends PureComponent {
         <div className={styles["articalcard-des"]}>
           <span>
             <Icon component={NewArticalTime} />
-            {`2022-12-10 14:50:45`}
+            {moment(this.props.create_time).format("YYYY-MM-DD")}
           </span>
           <span className={styles["articalcard-read-num"]}>
             <Icon component={Read} />
-            {`142586`}
+            {this.props.total_view}
           </span>
         </div>
       </div>
