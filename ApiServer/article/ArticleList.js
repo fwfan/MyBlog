@@ -8,7 +8,7 @@ const connection = MysqlDao.connection;
 router.get("/article_list", (req, res) => {
   const { start, limit } = Utils.parseQuery(req.query);
   connection.query(
-    "SELECT * FROM blog.article LIMIT ?, ?",
+    "SELECT id, title, author, summary, sub_type, create_time, total_view FROM blog.article LIMIT ?, ?",
     [start, limit],
     function (err, result) {
       if (err) {
