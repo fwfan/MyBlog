@@ -2,12 +2,14 @@ import { PureComponent } from "react";
 import ArticalCard from "../../components/ArticalCard";
 import { message, Pagination, Skeleton } from "antd";
 import axios from "axios";
+import ArticleCardSkeletons from "./components/ArticleCardSkeletons";
 import styles from "./index.module.scss";
 
 class HomePage extends PureComponent {
   state = {
-    articleList: [<Skeleton />,<Skeleton />,<Skeleton />,<Skeleton />,<Skeleton />,],
+    articleList: [],
     total: 5,
+    loaded: false,
   };
 
   componentDidMount() {
@@ -20,11 +22,10 @@ class HomePage extends PureComponent {
       .then((res) => {
         const { success, total, result, message } = res.data;
         if (success) {
-          this.setState({ articleList: result, total });
+          this.setState({ articleList: result, total, loaded: true });
         } else {
           message.error(message);
         }
-        console.log(res);
       });
   }
 
@@ -33,9 +34,13 @@ class HomePage extends PureComponent {
       <div className={styles["homepage"]}>
         <div className={styles["left"]}></div>
         <div className={styles["middle"]}>
-          {this.state.articleList.map((item) => (
-            <ArticalCard {...item}></ArticalCard>
-          ))}
+          {this.state.loaded ? (
+            this.state.articleList.map((item) => (
+              <ArticalCard {...item} key={item.id}></ArticalCard>
+            ))
+          ) : (
+           <ArticleCardSkeletons num={5}/>
+          )}
           <div className={styles["homepage-pigination"]}>
             <Pagination defaultCurrent={1} total={this.props.total} />
           </div>
