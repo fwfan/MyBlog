@@ -42,7 +42,7 @@ class HomePage extends PureComponent {
            <ArticleCardSkeletons num={5}/>
           )}
           <div className={styles["homepage-pigination"]}>
-            <Pagination defaultCurrent={1} total={this.props.total} />
+            <Pagination defaultCurrent={1} total={this.state.total} />
           </div>
         </div>
         <div className={styles["right"]}></div>
