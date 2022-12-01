@@ -11,6 +11,7 @@ router.get("/article_list", (req, res) => {
     "SELECT id, title, author, summary, sub_type, create_time, total_view FROM blog.article LIMIT ?, ?",
     [start, limit],
     function (err, result) {
+      connection.end();
       if (err) {
         res.send(Utils.parseFailedResult(err.message));
         return;
@@ -18,6 +19,7 @@ router.get("/article_list", (req, res) => {
       res.send(Utils.parseSuccessResult(result, result.length));
     }
   );
+  
 });
 
 module.exports = router;

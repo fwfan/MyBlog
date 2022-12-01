@@ -1,13 +1,13 @@
 import { PureComponent } from "react";
 import ArticalCard from "../../components/ArticalCard";
-import { message, Pagination } from "antd";
+import { message, Pagination, Skeleton } from "antd";
 import axios from "axios";
 import styles from "./index.module.scss";
 
 class HomePage extends PureComponent {
   state = {
-    articleList: [],
-    total: 0,
+    articleList: [<Skeleton />,<Skeleton />,<Skeleton />,<Skeleton />,<Skeleton />,],
+    total: 5,
   };
 
   componentDidMount() {
