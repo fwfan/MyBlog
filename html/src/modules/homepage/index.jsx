@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 import ArticalCard from "../../components/ArticalCard";
-import { message, Pagination, Skeleton } from "antd";
+import { message as antdMessage, Pagination } from "antd";
 import axios from "axios";
 import ArticleCardSkeletons from "./components/ArticleCardSkeletons";
 import styles from "./index.module.scss";
@@ -24,7 +24,7 @@ class HomePage extends PureComponent {
         if (success) {
           this.setState({ articleList: result, total, loaded: true });
         } else {
-          message.error(message);
+          antdMessage.error(message);
         }
       });
   }
