@@ -5,11 +5,11 @@ exports.parseSuccessResult = (result = [], total = 0, message = "") => ({
   message,
 });
 
-exports.parseFailedResult =  (message = "") => ({
-    success: false,
-    message,
-  });
+exports.parseFailedResult = (message = "") => ({
+  success: false,
+  message,
+});
 
-  exports.parseQuery = (query={})=>{
-    return {...JSON.parse(query.query)}
-  }
+exports.parseQuery = (query = {}) => {
+  return { ...JSON.parse(query.query) };
+};

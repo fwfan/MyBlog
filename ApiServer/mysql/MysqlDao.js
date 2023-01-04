@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-let connection = mysql.createConnection({
+let pool = mysql.createPool({
   host: "182.61.5.126",
   user: "root",
   password: "f110112119!",
@@ -7,5 +7,5 @@ let connection = mysql.createConnection({
   useConnectionPooling: true
 });
 
-exports.connection = connection;
+exports.pool = pool;
 
