@@ -1,5 +1,5 @@
 
-ApiServer/node_modules/*
+api/node_modules/*
 html/node_modules/*
 .vscode/good-tool/log.txt
 .vscode/good-tool/proxy.json
